@@ -12,7 +12,12 @@
 
 (defroutes app-routes
   (route/resources "/")
-  
+
+    (context "/start-application" []
+           (defroutes start-application
+             (GET "/" request (v/get-start-application request))
+             (POST "/" request (v/post-start-application request))))
+
 )
 
 
