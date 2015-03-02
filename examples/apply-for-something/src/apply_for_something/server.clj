@@ -2,18 +2,24 @@
   (:use [compojure.core]
         [ring.util.response]
         [ring.middleware.json]
-        [ring.middleware.params])
+        [ring.middleware.params]
+        )
   
   (:require [compojure.handler :as handler]          
             [compojure.route :as route]                        
             [ring.adapter.jetty :as jetty]
+            [apply-for-something.views :as v]
           )
   (:gen-class))
 
 (defroutes app-routes
   (route/resources "/")
 
-    (context "/start-application" []
+  (context "/" []
+           (defroutes root
+             (GET "/" request (redirect "/index.html"))))
+  
+  (context "/start-application" []
            (defroutes start-application
              (GET "/" request (v/get-start-application request))
              (POST "/" request (v/post-start-application request))))
