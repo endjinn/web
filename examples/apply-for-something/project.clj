@@ -29,6 +29,7 @@
                  [dk.ative/docjure "1.6.0"]
                  [rewrite-clj "0.2.0"]
                  [stencil "0.3.5"]
+                 [hbs "0.6.0"]
                  ]
   :ring {:handler apply-for-something.server/app}
   :main apply-for-something.server

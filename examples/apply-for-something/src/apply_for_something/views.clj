@@ -2,10 +2,6 @@
   (:require [apply-for-something.application :as a]
             [apply-for-something.responses :as r]))
 
-(stencil.loader/set-cache (clojure.core.cache/ttl-cache-factory {} :ttl 0))
-
-
-
 
 (defn get-start-application [request]
   (r/render-html-template-to-response "start-application"))
