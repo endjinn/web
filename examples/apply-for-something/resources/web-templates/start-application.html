@@ -1,3 +1,20 @@
-<form name="start-application-form" method="POST" action="/start-application" xmlns="http://www.w3.org/1999/html">
-    <input type="submit" value="Start Application" name="start-application" />
-</form>
+<html>
+
+  <body>
+      <ul>
+        <li><b>Start Application</b></li>
+        <li>Who you are</li>
+        <li>Where you live</li>
+        <li>Purpose of the application</li>
+        <li>Confirmation</li>
+        <li>Submit</li>
+        
+      </ul>
+
+    <p>Before we begin, we are going to do a quick check to make sure you have everything you need</p>
+    <form name="start-application-form" method="POST" action="/start-application" xmlns="http://www.w3.org/1999/html">
+      <input type="checkbox" name="loan-defaulted">Have you ever defaulted on a loan before?</input>
+      <input type="submit" value="Start Application" name="start-application" />
+    </form>
+  </body>
+</html>
