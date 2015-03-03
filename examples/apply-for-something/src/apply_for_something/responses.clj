@@ -1,13 +1,15 @@
 (ns apply-for-something.responses
   (:use [hbs.core]
+        [hbs.helper]
         [ring.util.response])) 
 
 (set-template-path! "/templates" ".html")
+(register-js-helpers! "resources/templates/helpers.js")
 
 (defn render-html-template-to-response
   ([template] (render-html-template-to-response template {}))
   ([template model]   
-   (let [data (merge model {:applicationProgress {:stage template}})]
+   (let [data (merge model {:stage template})]
      (-> (response (render-file template data))
          (content-type "text/html")))))
 

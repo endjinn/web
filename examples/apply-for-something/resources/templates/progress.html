@@ -1,12 +1,15 @@
-<ul>
-  <li>Start Application</li>
-  <li>Who you are</li>
-  <li>Where you live</li>
-  <li>Purpose of the application</li>
-  <li>Confirmation</li>
-  <li>Submit</li>
-</ul>
+<style>
+  .selected { font-weight: bold; }
+</style>
 
-<p>Current stage is {{applicationProgress.stage}}</p>
+<div id="progress-tracker">
+  <ul>
+    {{#stage "start-application"}}Start application{{/stage}}
+    {{#stage "about-you"}}About you{{/stage}}
+    {{#stage "where-you-live"}}Where you live{{/stage}}
+    {{#stage "purpose-of-application"}}Purpose of application{{/stage}}
+    {{#stage "confirmation"}}Confirmation{{/stage}}
+    {{#stage "submission"}}Submitted{{/stage}}
+  </ul>
+</div>
 
-{{#}}
