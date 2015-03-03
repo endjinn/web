@@ -48,9 +48,9 @@
              (POST "/" request (v/post-confirmation id request))
              ))
 
-   (context "/application-forms/:id/submission" [id]
+   (context "/application-forms/:id/submitted" [id]
            (defroutes submission
-             (GET "/" request (v/get-submission id request))             
+             (GET "/" request (v/get-submitted id request))             
              ))
    
    
