@@ -3,7 +3,7 @@
         [hbs.helper]
         [ring.util.response])) 
 
-(set-template-path! "/templates" ".html")
+(set-template-path! "/templates" "")
 (register-js-helpers! "resources/templates/helpers.js")
 
 (defn render-html-template-to-response

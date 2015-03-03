@@ -21,36 +21,36 @@
   
   (context "/start-application" []
            (defroutes start-application
-             (GET "/" request (v/get-start-application request))
-             (POST "/" request (v/post-start-application request))))
+             (GET "/" request (v/get-start-application request "01-start-application.html"))
+             (POST "/" request (v/post-start-application request "about-you"))))
 
   (context "/application-forms/:id/about-you" [id]
            (defroutes about-you
-             (GET "/" request (v/get-about-you id request))
-             (POST "/" request (v/post-about-you id request))
+             (GET "/" request (v/get-section id request "02-about-you.html"))
+             (POST "/" request (v/post-section id request "where-you-live"))
              ))
 
    (context "/application-forms/:id/where-you-live" [id]
            (defroutes where-you-live
-             (GET "/" request (v/get-where-you-live id request))
-             (POST "/" request (v/post-where-you-live id request))
+             (GET "/" request (v/get-section id request "03-where-you-live.html"))
+             (POST "/" request (v/post-section id request "purpose-of-application"))
              ))
 
    (context "/application-forms/:id/purpose-of-application" [id]
            (defroutes purpose-of-application
-             (GET "/" request (v/get-purpose-of-application id request))
-             (POST "/" request (v/post-purpose-of-application id request))
+             (GET "/" request (v/get-section id request "04-purpose-of-application.html"))
+             (POST "/" request (v/post-section id request "confirmation"))
              ))
 
    (context "/application-forms/:id/confirmation" [id]
-           (defroutes confirmaition
-             (GET "/" request (v/get-confirmation id request))
-             (POST "/" request (v/post-confirmation id request))
+           (defroutes confirmation
+             (GET "/" request (v/get-section id request "05-confirmation.html"))
+             (POST "/" request (v/post-section id request "submitted"))
              ))
 
    (context "/application-forms/:id/submitted" [id]
            (defroutes submission
-             (GET "/" request (v/get-submitted id request))             
+             (GET "/" request (v/get-section id request "06-submitted.html"))             
              ))
    
    
