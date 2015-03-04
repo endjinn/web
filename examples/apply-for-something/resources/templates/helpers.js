@@ -1,9 +1,10 @@
-Handlebars.registerHelper('stage', function(stageToRender, options) {
-    var classToAdd = (stageToRender === this.stage) ? "class='selected'" : ""; 
-    return new Handlebars.SafeString(        
-        '<li ' + classToAdd + '>'
-            + options.fn(this)
-            + '</li>');
+Handlebars.registerHelper('stage', function(stageToRender, stageText, options) {
+    var classToAdd = (stageToRender === this.stage) ? "selected" : "";
+    var stageContext = {};
+    stageContext.stageClass = classToAdd;
+    stageContext.stageText = stageText;
+        
+    return new Handlebars.SafeString(options.fn(stageContext));
 });
 
 
