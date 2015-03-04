@@ -20,8 +20,8 @@
            (GET "/" request (redirect "/index.html")))
   
   (context "/start-application" []           
-           (GET "/" request (v/get-start-application request "01-start-application.html"))
-           (POST "/" request (v/post-start-application request "about-you")))
+           (GET "/" request (v/get-start-application request))
+           (POST "/" request (v/post-start-application request)))
 
   (context "/application-forms/:id/:section" [id section]
            (GET "/" request (v/get-section id (keyword section) request))
