@@ -15,3 +15,12 @@
 (defn post-section [id request next-section]
   (r/redirect-to-next-section next-section id))
 
+(def sections-to-templates
+  { :about-you "02-about-you.html"
+   })
+
+(defn get-section-new [id section request]
+  (let [template (section sections-to-templates)]
+    (r/render-html-template-to-response template)))
+
+
