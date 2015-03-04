@@ -30,12 +30,13 @@
                  [rewrite-clj "0.2.0"]
                  [stencil "0.3.5"]
                  [hbs "0.6.0"]
+                 [prone "0.8.1"]
                  ]
   :ring {:handler apply-for-something.server/app}
   :main apply-for-something.server
   :aot [apply-for-something.server]
   :plugins [[lein-ring "0.8.6"]]
   :profiles {:dev {
-                   :dependencies [[midje "1.6-alpha2"]]}}
-
-)
+                   :dependencies [[midje "1.6-alpha2"]]
+                   :ring {:stacktrace-middleware prone.middleware/wrap-exceptions}}}
+  )
