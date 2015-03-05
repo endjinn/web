@@ -3,7 +3,6 @@
   (:require [apply-for-something.application :as a]
             [apply-for-something.responses :as r]))
 
-
 (defstages
   [[:start-application      "01-start-application.html"]
    [:about-you              "02-about-you.html"]
@@ -13,19 +12,16 @@
    [:submitted              "06-submitted.html"]])
 
 (defn get-start-application [request]
-  (r/render-html-template-to-response (first (:start-application *stages*))))
+  (r/render-html-template-to-response (get-stage-template :start-application)))
 
 (defn post-start-application [request]
   (let [application (a/create-application)]
-    (r/redirect-to-next-section (name (second (:start-application *stages*))) (:id application))))
+    (r/redirect-to-next-stage (get-next-stage :start-application) (:id application))))
 
+(defn get-stage [id stage request]  
+  (r/render-html-template-to-response (get-stage-template stage)))
 
-(defn get-section [id section request]
-  (let [template (first (section *stages*))]
-    (r/render-html-template-to-response template)))
-
-(defn post-section [id section request]
-  (let [next-section (name (second (section *stages*)))]   
-    (r/redirect-to-next-section next-section id)))
+(defn post-stage [id stage request] 
+  (r/redirect-to-next-stage (get-next-stage stage) id))
 
 

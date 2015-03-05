@@ -23,9 +23,9 @@
            (GET "/" request (v/get-start-application request))
            (POST "/" request (v/post-start-application request)))
 
-  (context "/application-forms/:id/:section" [id section]
-           (GET "/" request (v/get-section id (keyword section) request))
-           (POST "/" request (v/post-section id (keyword section) request)))
+  (context "/application-forms/:id/:stage" [id stage]
+           (GET "/" request (v/get-stage id (keyword stage) request))
+           (POST "/" request (v/post-stage id (keyword stage) request)))
   )
 
 

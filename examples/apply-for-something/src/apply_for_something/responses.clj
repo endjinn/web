@@ -1,6 +1,6 @@
 (ns apply-for-something.responses
   (:use [hbs.core]
-        [hbs.helper]
+        [hbs.helper :only [param defhelper safe-str]]
         [ring.util.response])) 
 
 (set-template-path! "/templates" "")
@@ -27,5 +27,5 @@
      (-> (response (render-file template data))
          (content-type "text/html")))))
 
-(defn redirect-to-next-section [section application-id]
-  (redirect-after-post (format "/application-forms/%s/%s" application-id section)))
+(defn redirect-to-next-stage [stage application-id]
+  (redirect-after-post (format "/application-forms/%s/%s" application-id stage)))

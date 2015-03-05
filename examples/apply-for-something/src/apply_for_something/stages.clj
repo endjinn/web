@@ -25,3 +25,9 @@
 
 (defn defstages [stages-list]
   (def ^:dynamic *stages* (configure-stages stages-list)))
+
+(defn get-stage-template [stage]
+  (first (stage *stages*)))
+
+(defn get-next-stage [stage]
+  (name (second (stage *stages*))))
