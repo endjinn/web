@@ -9,6 +9,7 @@
 
   
   :dependencies [[org.clojure/clojure "1.5.1"]
+                 [ch.qos.logback/logback-classic "1.1.1"]
                  [org.clojure/algo.graph "0.1.0-SNAPSHOT"]
                  [com.novemberain/monger "1.4.1"]
                  [cheshire "5.0.0"]
@@ -30,7 +31,7 @@
                  [rewrite-clj "0.2.0"]
                  [stencil "0.3.5"]
                  [hbs "0.6.0"]
-                 [prone "0.8.1"]
+                 [prone "0.8.1"]                 
                  ]
   :ring {:handler apply-for-something.server/app}
   :main apply-for-something.server
