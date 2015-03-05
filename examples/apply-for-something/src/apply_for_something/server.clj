@@ -25,8 +25,7 @@
 
   (context "/application-forms/:id/:stage" [id stage]
            (GET "/" request (v/get-stage id (keyword stage) request))
-           (POST "/" request (v/post-stage id (keyword stage) request)))
-  )
+           (POST "/" request (v/post-stage id (keyword stage) request))))
 
 
 
@@ -34,15 +33,11 @@
   (-> (handler/api app-routes)
       (prone/wrap-exceptions)
       (wrap-json-body)
-      (wrap-json-response)      
-   ;;      (v/request-printer)
-      ))
+      (wrap-json-response)))
 
 
 (defn -main [& args]
-
   (if (not (empty? args))
     (jetty/run-jetty app {:port (read-string (first args))})
-    (jetty/run-jetty app {:port 8077}))  
-)
+    (jetty/run-jetty app {:port 8077})))
 
