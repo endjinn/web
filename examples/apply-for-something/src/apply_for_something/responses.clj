@@ -4,7 +4,7 @@
         [ring.util.response])) 
 
 (set-template-path! "/templates" "")
-(register-js-helpers! "resources/templates/helpers.js")
+;;(register-js-helpers! "resources/templates/helpers.js")
 
 (defn stage-class [stage current-stage]
   (if (= stage current-stage)
@@ -12,7 +12,7 @@
     ""))
 
 
-(defhelper progress-stage [ctx options]
+(defhelper stage [ctx options]
   (let [stage ctx
         current-stage (.get options "current-stage")
         stage-context {:stageClass (stage-class stage current-stage)
