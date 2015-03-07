@@ -1,0 +1,1405 @@
+/* Sass specific */
+/* Variables */
+/* taken from Department for Education */
+/*
+#000
+#000000 * small search button
+#014c73 * Done question answer back
+#0A3641 * Finance table TH
+#0b0c0c - black * small search button border 123
+#222 * small search button border 4
+#2E3191 * toggle-button
+#2E8ACA * toggle-button hover
+#383838 * small search hover active etc
+#4f6f5e * Done question answer back OLD
+#6a0812 * input.finalsubmit[disabled] shadow
+#84BA9D * Done Question Border
+#9ecaed * Content Editable (live editing)
+#add5bf * Gateway Question
+#b10e1e - red * input.finalsubmit[disabled]
+#BFC1C3 - grey-2 * Finance table TD border
+#D2E6DB * Done Question Back
+#DEE0E2 - Grey-3
+#E1E8E8 * Finance table TD
+#E2FBE1 * Summary/conf info box
+#EAEDEF * postalAddressText
+#FF9900 * Content Editable (live editing) border
+#FFCC00
+#fff - white * Done question answer text
+#FFFFCC
+#FFFFFF - white
+*/
+/* Media query helpers. These make producing IE layouts */
+/* Cross-browser shims */
+/* full time app modules */
+/*--- preAmble ----*/
+#preAmble {
+    padding: 0 0 1em 0;
+}
+#preAmble li {
+    list-style-type: none;
+    padding: 2em 0 2em 5.5em;
+    border-bottom: 1px solid #ccc;
+}
+#preAmble li:last-of-type {
+    border-bottom: 0 none;
+}
+
+.preAmble-info {
+    background: url(../images/info-icon.png) left center no-repeat;
+}
+
+.preAmble-pport {
+    background: url(../images/passport-icon.png) left center no-repeat;
+}
+
+.preAmble-nino {
+    background: url(../images/nino-icon.png) left center no-repeat;
+}
+
+.preAmble-time {
+    background: url(../images/time-icon.png) left center no-repeat;
+}
+
+/*---- progress shown on the top panel ----*/
+.progress {
+    margin: 1em auto 0;
+    display: block;
+    padding: 0.4em 0 1.15em;
+    overflow: hidden;
+    width: 100%;
+    background: url(../images/dash.gif) repeat-x bottom;
+}
+
+.progress ol {
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    /* sets scale for entire progress menu */
+}
+.progress ol li {
+    display: inline;
+    list-style-type: none;
+    float: left;
+    padding: 0 1em;
+    position: relative;
+    min-width: 5em;
+    max-width: 9em;
+    /* increases hitbox for menuitems */
+}
+.progress ol li:after {
+    background-color: #dee0e2;
+    content: " ";
+    display: block;
+    height: 0.25em;
+    left: 50%;
+    position: absolute;
+    top: 0.75em;
+    width: 7.3em;
+    z-index: 0;
+}
+.progress ol li.completed a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.progress ol li.completed .number {
+    background: #003a69 url(../images/progress-tick-large.png) no-repeat center;
+    background-size: 50%;
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+}
+.progress ol li.completed:hover span.number {
+    background-image: none;
+    color: white;
+    text-indent: 0em;
+}
+.progress ol li.completed:after {
+    background-color: #003a69;
+}
+.progress ol li.active span {
+    font-weight: bold;
+}
+.progress ol li.active span.number {
+    font-size: 1.2em;
+    margin: -0.3em 0 0.25em;
+}
+.progress ol li.active a {
+    font-weight: bold;
+}
+.progress ol li.last:after {
+    display: none;
+}
+.progress ol li span,
+.progress ol li a {
+    display: block;
+    vertical-align: middle;
+    z-index: 1;
+    margin: 0 auto;
+    font-size: 0.84em;
+}
+.progress ol li a:after {
+    background-color: rgba(255, 0, 0, 0);
+    /* hack for IE9 and 10 */
+    content: " ";
+    display: block;
+    height: 100%;
+    left: 12%;
+    position: absolute;
+    top: 0;
+    width: 76%;
+    z-index: 5;
+}
+.progress ol .number {
+    color: #0b0c0c;
+    background: #dee0e2;
+    line-height: 1.85em;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 2;
+    margin-bottom: 0.4em;
+    font-weight: 700;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    border-radius: 3rem;
+}
+
+.progress li.active span.number,
+.page-header span.number {
+    color: white;
+    background: #2b8cc4;
+}
+
+/*---- C&L grid ----*/
+.grid {
+    float: left;
+    width: 100%;
+}
+.grid .row {
+    margin-bottom: 1em;
+    float: left;
+    width: 100%;
+}
+.grid .col {
+    width: 49%;
+    position: relative;
+    background: #eee;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+.grid .col.one, .grid .col.three {
+    margin: 0 2% 0 0;
+}
+.grid .col.two, .grid .col.four {
+    margin-right: 0;
+}
+.grid .col.one, .grid .col.two, .grid .col.three, .grid .col.four {
+    padding: 0;
+    min-height: 14em;
+}
+.grid .col h2, .grid .col h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+    line-height: 22px;
+    line-height: 2.23529rem;
+    background: #333;
+    color: #fff;
+    font-weight: bold;
+    left: 0%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    position: absolute;
+    top: 60%;
+    max-width: 80%;
+}
+.grid .col.one h2, .grid .col.one h3 {
+    background: #de0067;
+}
+.grid .col.two h2, .grid .col.two h3 {
+    background: #019757;
+}
+.grid .col.three h2, .grid .col.three h3 {
+    background: #541b68;
+}
+.grid .col.four h2, .grid .col.four h3 {
+    background: #999800;
+}
+.grid .col .gridQuestion,
+.grid .col .gridAnswer,
+.grid .col p {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+}
+.grid .col .gridQuestion {
+    background: #ccc;
+    min-height: 14em;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    -webkit-transition: left 0.25s ease-in-out;
+    -moz-transition: left 0.3s ease-in-out;
+    -ms-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+}
+.grid .col.one .gridQuestion {
+    background: #de0067 url(../images/grid1.jpg) no-repeat 0 0;
+}
+.grid .col.two .gridQuestion {
+    background: #019757 url(../images/grid2.jpg) no-repeat 0 0;
+}
+.grid .col.three .gridQuestion {
+    background: #541b68 url(../images/grid3.jpg) no-repeat 0 0;
+}
+.grid .col.four .gridQuestion {
+    background: #999800 url(../images/grid4.jpg) no-repeat 0 0;
+}
+.grid .col p {
+    padding: 1em;
+    z-index: 10;
+    position: relative;
+}
+.grid .col .gridAnswer {
+    margin: 0;
+    padding: 1em 0 0 0;
+    position: relative;
+}
+.grid .col .gridAnswer > p {
+    float: none;
+    padding: 0 1em 1em 1em;
+}
+.grid .col:hover, .grid .col:focus {
+    outline: 3px solid #FFCC00;
+    outline-offset: -3px;
+    /* not supported in IE*/
+}
+.grid .col:hover .gridQuestion, .grid .col:focus .gridQuestion {
+    left: -470px;
+}
+.grid.gridtall .one,
+.grid.gridtall .two {
+    min-height: 28em;
+}
+.grid.gridtall .one .gridQuestion,
+.grid.gridtall .two .gridQuestion {
+    min-height: 28em;
+}
+.grid.gridtall .one h2, .grid.gridtall .one h3,
+.grid.gridtall .two h2,
+.grid.gridtall .two h3 {
+    top: 70%;
+}
+.grid.gridtall .three,
+.grid.gridtall .four {
+    min-height: 18em;
+}
+.grid.gridtall .three .gridQuestion,
+.grid.gridtall .four .gridQuestion {
+    min-height: 18em;
+}
+.grid.gridtall .col.one div.gridQuestion {
+    background: #de0067 url(../images/grid1tall.jpg) no-repeat 0 0;
+}
+.grid.gridtall .col.two div.gridQuestion {
+    background: #019757 url(../images/grid2tall.jpg) no-repeat 0 0;
+}
+.grid.gridtall .col.three div.gridQuestion {
+    background: #541b68 url(../images/grid3tall.jpg) no-repeat 0 0;
+}
+.grid.gridtall .col.four div.gridQuestion {
+    background: #999800 url(../images/grid4tall.jpg) no-repeat 0 0;
+}
+.grid.gridplacement .one,
+.grid.gridplacement .two {
+    min-height: 14em;
+}
+.grid.gridplacement .one .gridQuestion,
+.grid.gridplacement .two .gridQuestion {
+    min-height: 14em;
+}
+.grid.gridplacement .one h2, .grid.gridplacement .one h3,
+.grid.gridplacement .two h2,
+.grid.gridplacement .two h3 {
+    top: 70%;
+}
+.grid.gridplacement .three,
+.grid.gridplacement .four {
+    min-height: 18em;
+}
+.grid.gridplacement .three .gridQuestion,
+.grid.gridplacement .four .gridQuestion {
+    min-height: 18em;
+}
+.grid.gridplacement .col.one div.gridQuestion {
+    background: #de0067 url(../images/grid1short.jpg) no-repeat 0 0;
+}
+.grid.gridplacement .col.two div.gridQuestion {
+    background: #019757 url(../images/grid2short.jpg) no-repeat 0 0;
+}
+.grid.gridplacement .col.three div.gridQuestion {
+    background: #541b68 url(../images/grid3tall.jpg) no-repeat 0 0;
+}
+.grid.gridplacement .col.four div.gridQuestion {
+    background: #999800 url(../images/grid4tall.jpg) no-repeat 0 0;
+}
+.grid.gridshort .one,
+.grid.gridshort .two {
+    min-height: 14em;
+}
+.grid.gridshort .one .gridQuestion,
+.grid.gridshort .two .gridQuestion {
+    min-height: 14em;
+}
+.grid.gridshort .one h2, .grid.gridshort .one h3,
+.grid.gridshort .two h2,
+.grid.gridshort .two h3 {
+    top: 70%;
+}
+.grid.gridshort .three,
+.grid.gridshort .four {
+    min-height: 14em;
+}
+.grid.gridshort .three .gridQuestion,
+.grid.gridshort .four .gridQuestion {
+    min-height: 14em;
+}
+.grid.gridshort .col.one div.gridQuestion {
+    background: #de0067 url(../images/grid1short.jpg) no-repeat 0 0;
+}
+.grid.gridshort .col.two div.gridQuestion {
+    background: #019757 url(../images/grid2short.jpg) no-repeat 0 0;
+}
+.grid.gridshort .col.three div.gridQuestion {
+    background: #541b68 url(../images/grid3tall.jpg) no-repeat 0 0;
+}
+.grid.gridshort .col.four div.gridQuestion {
+    background: #999800 url(../images/grid4tall.jpg) no-repeat 0 0;
+}
+.grid .grid-vid {
+    display: inline-block;
+    margin: 1em 0;
+    overflow: hidden;
+    width: 49%;
+}
+.grid .grid-vid.one {
+    height: auto;
+    margin-right: 2%;
+}
+
+/* COC and Entitlement */
+/* Generic Styling, for Desktops/Laptops */
+table.entitlementTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: none;
+}
+table.entitlementTable th, table.entitlementTable td {
+    color: #0b0c0c;
+    font-weight: 700;
+    padding: 20px 0;
+    text-align: left;
+    background: none;
+    border: none;
+}
+table.entitlementTable td {
+    text-align: right;
+    vertical-align: top;
+    border: none;
+    background: white;
+}
+
+ul.Breakdown {
+    text-align: left;
+    font-weight: normal;
+    color: #737373;
+    font-size: 16px;
+    padding-left: 16px;
+    margin-top: -30px;
+    max-width: 700px;
+}
+
+.bottomBorder {
+    border-bottom: 1px solid #bfc1c3;
+    width: 100%;
+}
+
+tr.borderTop {
+    border-top: 1px solid #bfc1c3;
+}
+
+.supportingAlert {
+    color: #999999;
+    font-weight: 400;
+}
+
+.totalAmountText {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.totalText {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.total {
+    font-size: 34px;
+    font-weight: 700;
+    padding-top: 15px;
+    padding-right: 0;
+}
+
+.totalFinance {
+    font-size: 34px;
+    font-weight: 700;
+    padding: 0;
+    line-height: 12px;
+}
+
+/********top part of page*********/
+table.BreakdownBox {
+    font-weight: 700;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+table.BreakdownBox td {
+    background: #e1e8e8;
+    border: none;
+    width: 50%;
+}
+table.BreakdownBox th, table.BreakdownBox table.entitlementTable td, table.entitlementTable table.BreakdownBox td {
+    padding: 20px 5px 10px 5px;
+    background: #e1e8e8;
+    border: none;
+    font-size: 50px;
+    width: 50%;
+}
+
+table.BreakdownBox tr:nth-child(2n) td {
+    background: #e1e8e8;
+}
+
+a.entitlementLink {
+    color: #2E3191;
+    font-weight: normal;
+    line-height: 30px;
+    font-size: 17px;
+}
+
+.Amount {
+    font-size: 3.8rem;
+    line-height: 0;
+}
+
+h2.academicYearTitle {
+    font-size: 1.8rem;
+    margin-bottom: 7px;
+    font-weight: normal;
+}
+
+h3.entitlementTitle {
+    border-bottom: 1px solid #0b0c0c;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+h4.entitle {
+    font-size: 0.4em;
+    padding-right: 60px;
+    padding-left: 10px;
+    line-height: 24px;
+    text-align: left;
+}
+
+.HavetoPay {
+    padding: 10px;
+    background: #fff4b5;
+    font-weight: normal;
+}
+.HavetoPay p:last-of-type {
+    margin-bottom: 0;
+}
+
+.tip {
+    outline: none;
+    cursor: help;
+    position: relative;
+}
+
+.tip span {
+    margin-left: -999em;
+    position: absolute;
+    color: #232323;
+    z-index: 1001;
+}
+
+.tip:hover span,
+.tip:focus span {
+    position: absolute;
+    left: 1em;
+    top: 22px;
+    z-index: 1001;
+    margin-left: 0;
+    width: 300px;
+    /*-webkit-box-shadow: 0 2px 4px 0 #232323;
+    box-shadow: 0 2px 4px 0 #232323;*/
+}
+
+.tip-content {
+    padding: 15px 20px;
+    background: #fff;
+    border: 5px solid #003479;
+    margin-top: 26px;
+}
+
+.tip:hover img {
+    border: 0;
+    margin: -10px 0 0 -55px;
+    float: left;
+    position: absolute;
+}
+
+.tip:hover em {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+    padding: 0.2em 0 0.6em 0;
+}
+
+.gateway-question {
+    background-color: #add5bf;
+}
+
+/* done questions */
+.done-questions {
+    padding: 10px 1% 10px 0;
+    background: #D2E6DB;
+    border-bottom: 1px solid #84BA9D;
+    display: table;
+    width: 99%;
+    position: relative;
+}
+.done-questions li {
+    text-indent: 0px;
+    margin: 0;
+    padding: 0;
+}
+.done-questions h3,
+.done-questions h2 {
+    display: table-cell;
+    padding: 0 10px;
+    vertical-align: middle;
+    width: auto;
+    margin: 0;
+    font-size: 1.6rem;
+}
+.done-questions .answer {
+    display: table-cell;
+    padding-right: 1em;
+    padding: 0;
+    text-align: right;
+    vertical-align: middle;
+    width: auto;
+}
+.done-questions .answer span {
+    background: #4f6f5e;
+    background: #014c73;
+    color: #fff;
+    display: inline-block;
+    padding: 0.35em 0.5em 0.35em;
+    text-align: left;
+}
+.done-questions .undo {
+    display: table-cell;
+    margin: 0;
+    padding-left: 1%;
+    vertical-align: middle;
+    width: 17%;
+    white-space: nowrap;
+}
+
+/* ------------------ Radio Button DIV ----------------*/
+.radioButtonDiv,
+.checkBoxDiv {
+    margin-bottom: 1em;
+}
+.radioButtonDiv div,
+.checkBoxDiv div {
+    border-bottom: 1px dotted #ccc;
+    padding: 1em 0;
+}
+.radioButtonDiv div:last-of-type,
+.checkBoxDiv div:last-of-type {
+    border-bottom: 0 none;
+    padding: 1em 0 0 0;
+}
+.radioButtonDiv input[type="checkbox"] + label,
+.radioButtonDiv input[type="radio"] + label,
+.checkBoxDiv input[type="checkbox"] + label,
+.checkBoxDiv input[type="radio"] + label {
+    display: block;
+    padding: 0;
+    margin: 0 0 0 2em;
+}
+.radioButtonDiv input[type="checkbox"] + label span,
+.radioButtonDiv input[type="radio"] + label span,
+.checkBoxDiv input[type="checkbox"] + label span,
+.checkBoxDiv input[type="radio"] + label span {
+    display: block;
+    color: #6f777b;
+    font-weight: normal;
+    padding-top: 5px;
+}
+.radioButtonDiv input,
+.checkBoxDiv input {
+    margin: 4px 10px -20px 0;
+    float: left;
+}
+
+#radioOptionChoices label {
+    display: block;
+    margin-left: 2em;
+}
+
+/* recursive question-set */
+ul.recursive {
+    line-height: 1.5;
+    list-style: none;
+    margin: 0;
+    padding-left: 15px;
+    width: 118.5%;
+}
+ul.recursive li .done-questions h2 {
+    margin: 10px 5px 10px 0;
+    display: table-cell;
+}
+ul.recursive li .done-questions .undo {
+    width: 18%;
+}
+
+.groups {
+    padding-top: .5em;
+}
+
+.inline-labels input,
+.checkBox-question {
+    display: inline-block;
+    position: relative;
+    top: -2px;
+}
+
+.inline-labels label {
+    display: inline-block;
+    font-weight: normal;
+    margin: 0 0 13px 5px;
+    vertical-align: text-top;
+    width: 90%;
+}
+
+/*---- search box ----*/
+#search-text-box {
+    height: 40px;
+    float: left;
+    width: 89%;
+}
+
+.search-box {
+    margin: 0 !important;
+    width: 70%;
+    height: 27px;
+}
+
+input.small-search-button {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("https://assets.digital.cabinet-office.gov.uk/frontend/homepage/search-button-c923f058c4533517c89845a0aa435579.png") no-repeat scroll 2px 50% #0b0c0c;
+    background-color: #000 !important;
+    border-color: #0b0c0c #0b0c0c #0b0c0c #222;
+    border-image: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 10px 9px 10px !important;
+    right: 0;
+    text-indent: -5000px;
+    top: 0;
+    vertical-align: top;
+    width: 40px;
+    z-index: 4;
+}
+
+.course-search-smallprint {
+    float: left;
+    width: 100%;
+    padding-left: 11px;
+}
+.course-search-smallprint .smallprint {
+    float: left;
+    font-weight: normal;
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 17px;
+    line-height: 1.64706rem;
+    margin-bottom: 7px;
+    margin-right: 15px;
+    min-width: 20px;
+}
+
+.small-search-button:hover {
+    background: url("../images/small-search-button.png") no-repeat scroll 2px 50% #0b0c0c !important;
+    background-color: #383838 !important;
+}
+
+.small-search-button:hover {
+    background: url("https://assets.digital.cabinet-office.gov.uk/frontend/homepage/search-button-c923f058c4533517c89845a0aa435579.png") no-repeat scroll 2px 50% #0b0c0c !important;
+    background-color: #383838 !important;
+}
+
+.small-search-button:active, .small-search-button:focus {
+    background: url("https://assets.digital.cabinet-office.gov.uk/frontend/homepage/search-button-c923f058c4533517c89845a0aa435579.png") no-repeat scroll 2px 50% #0b0c0c !important;
+    background-color: #383838 !important;
+    top: 0 !important;
+}
+
+.no-results-found {
+    padding-left: 14px;
+    margin-top: 14px;
+    display: block;
+}
+
+input.no-margin {
+    margin-bottom: 0;
+}
+
+.manual-search {
+    padding-top: 50px;
+    padding-left: 14px;
+}
+
+.search-result {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 2.23529rem;
+    overflow: initial;
+    width: 100%;
+}
+
+.search-result-list {
+    list-style: none;
+    padding: 0;
+    padding-top: 7px;
+    margin: 0;
+    width: 100%;
+}
+.search-result-list li {
+    clear: left;
+}
+.search-result-list a {
+    padding: 1px 10px;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+}
+.search-result-list a:hover {
+    background-color: white;
+    padding: 1px 10px;
+    width: 68%;
+}
+.search-result-list a:focus {
+    background-color: #FFCC00;
+    border-bottom: 1px solid #FFFFCC;
+    outline-offset: -2px;
+    width: 68%;
+}
+
+button.toggle-button {
+    cursor: pointer;
+    font-weight: 600;
+    background: transparent url(../images/blue-arrow.gif) no-repeat 3px 8px;
+    display: table;
+    display: block;
+    text-decoration: underline;
+    margin: 0 0 0.5em;
+    padding: 0 1em 0 1.65em;
+    color: #2E3191;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.75;
+    text-rendering: optimizelegibility;
+}
+
+button.toggle-button.blue-arrow {
+    background: transparent url(../images/blue-arrow.gif) no-repeat 3px -39px;
+}
+
+button.toggle-button:hover {
+    color: #2E8ACA;
+}
+
+button.toggle-button:focus {
+    outline: 3px solid #FFCC00;
+}
+
+[contenteditable="true"] {
+    border: 2px solid #FF9900;
+    border-radius: 7px;
+    display: inline-block;
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.fieldset h2 + .box {
+    margin-top: 1em;
+}
+
+/* Confirmation specific styling
+
+.confirmationForm { width:82.3%;}*/
+.confirmationForm h3,
+.applicationSummaryForm h3 {
+    margin-top: 2em;
+}
+.confirmationForm h3:first-of-type,
+.applicationSummaryForm h3:first-of-type {
+    margin-top: 1em;
+}
+.confirmationForm li,
+.applicationSummaryForm li {
+    line-height: 1.8em;
+}
+.confirmationForm .info,
+.applicationSummaryForm .info {
+    background-color: #E2FBE1;
+    background-image: none;
+    border: 2px solid #9FD9B0;
+    border: 0 none;
+    display: block;
+    margin: 0 auto;
+    outline: 0 none;
+    padding: 1em;
+    text-align: center;
+}
+.confirmationForm .info:before,
+.applicationSummaryForm .info:before {
+    display: none;
+}
+.confirmationForm .info h2,
+.applicationSummaryForm .info h2 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin: 0;
+}
+.confirmationForm .info p + h2,
+.applicationSummaryForm .info p + h2 {
+    margin-top: -0.8em;
+}
+.confirmationForm .finance,
+.applicationSummaryForm .finance {
+    margin: 0 0 1em;
+    width: 82.3%;
+}
+.confirmationForm .finance td, .confirmationForm .finance th, .confirmationForm .finance table.entitlementTable td, table.entitlementTable .confirmationForm .finance td,
+.applicationSummaryForm .finance td,
+.applicationSummaryForm .finance th,
+.applicationSummaryForm .finance table.entitlementTable td,
+table.entitlementTable .applicationSummaryForm .finance td {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    font-size: 1.6rem;
+    font-weight: normal;
+    padding: 1em 0;
+}
+.confirmationForm .finance td:last-of-type, .confirmationForm .finance th:last-of-type, .confirmationForm .finance table.entitlementTable td:last-of-type, table.entitlementTable .confirmationForm .finance td:last-of-type,
+.applicationSummaryForm .finance td:last-of-type,
+.applicationSummaryForm .finance th:last-of-type,
+.applicationSummaryForm .finance table.entitlementTable td:last-of-type,
+table.entitlementTable .applicationSummaryForm .finance td:last-of-type {
+    text-align: right;
+}
+.confirmationForm .finance td:first-of-type, .confirmationForm .finance th:first-of-type, .confirmationForm .finance table.entitlementTable td:first-of-type, table.entitlementTable .confirmationForm .finance td:first-of-type,
+.applicationSummaryForm .finance td:first-of-type,
+.applicationSummaryForm .finance th:first-of-type,
+.applicationSummaryForm .finance table.entitlementTable td:first-of-type,
+table.entitlementTable .applicationSummaryForm .finance td:first-of-type {
+    width: 40%;
+}
+.confirmationForm .finance tbody,
+.applicationSummaryForm .finance tbody {
+    border-top: 2px solid #111;
+}
+.confirmationForm p,
+.applicationSummaryForm p {
+    max-width: 82.3%;
+}
+
+/* Hacks */
+.modal-iframe {
+    height: 392px;
+    overflow: auto;
+}
+
+#timeoutPopupmodalPopup {
+    width: 500px;
+}
+#timeoutPopupmodalPopup .modal-iframe {
+    height: auto;
+    overflow: visible;
+    border: 0 none;
+    border-top: 0 none;
+    padding: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: none;
+}
+
+.modal-warning {
+    width: auto;
+}
+.modal-warning .modal-content {
+    min-height: 2px;
+}
+
+.modal-popup {
+    width: auto;
+}
+
+#simplemodal-container {
+    padding: 0.75em 1.1em 0;
+}
+#simplemodal-container h3 {
+    margin-top: 0.5em;
+}
+#simplemodal-container h3:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+input[value=cancel],
+input[value=continue] {
+    text-transform: capitalize;
+}
+
+#wrap {
+    height: auto !important;
+    margin: 0 auto -14.01em;
+    min-height: 100%;
+}
+
+input.finalsubmit[disabled],
+input.finalsubmit[disabled]:hover {
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    background-color: #b10e1e;
+    background-image: url(../images/twirlythingforred.gif);
+    background-position: .5em center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    box-shadow: 0 2px 0 #6a0812;
+    -moz-box-shadow: 0 2px 0 #6a0812;
+    -webkit-box-shadow: 0 2px 0 #6a0812;
+    color: #FFF;
+    cursor: wait;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin: 10px 10px 10px 0;
+    opacity: 1;
+    padding: .25em .5em .25em 2.3em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    z-index: 11;
+}
+
+.message {
+    max-width: 733px;
+}
+
+.fieldset .message {
+    width: 100%;
+}
+
+.important {
+    background-color: #dee0e2;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+.important p:last-of-type {
+    margin-bottom: 0;
+}
+
+.postalAddressText {
+    background: none repeat scroll 0 0 #EAEDEF;
+    margin: 1em 0 1em 0;
+    min-height: 40px;
+    padding: 25px;
+    width: 60%;
+}
+
+.noAddressPrompt {
+    display: block;
+    margin: 1em 0;
+}
+
+input.btnQasSearch {
+    display: block;
+    margin: 0 0 1em;
+}
+
+.btnQasLookup {
+    display: inline-block;
+    margin: 1em 0 0.5em;
+}
+
+.iag-divider {
+    border-bottom: 1px solid #DEE0E2;
+    margin: 1.5em 0 2.5em 0;
+    width: 82.3%;
+}
+
+.group {
+    margin-top: 1em;
+}
+
+.page-header h1 {
+    max-width: 100%;
+    font-weight: 700;
+}
+
+#spinner {
+    width: 300px;
+}
+
+.normal {
+    font-weight: normal !important;
+}
+
+.info h2 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.info p + h2 {
+    margin-top: 2em;
+}
+
+.thickGreyBorder {
+    border: 5px solid #bbb;
+    padding: 0 15px 15px;
+    width: 82.3%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#qasPostcode {
+    margin-top: 1em;
+}
+
+.dgv .primary[type="submit"],
+.dgv input[type="submit"],
+.dgv input[type="button"],
+.dgv input.answer-button,
+.dgv button {
+    margin: 5px 10px 15px 0;
+}
+.dgv input.answer-button {
+    display: inline-block;
+}
+.dgv a.secondary,
+.dgv .grey[type="submit"],
+.dgv .secondary[type="submit"],
+.dgv .button-grey-small {
+    display: block;
+}
+
+/* Responsive Shim */
+@media screen and (max-width: 962px) {
+    input[type="submit"] {
+        white-space: normal;
+    }
+
+    .done-questions .undo {
+        white-space: normal;
+    }
+
+    .support li {
+        margin-bottom: 0.5em;
+    }
+
+    input[type="checkbox"] {
+        vertical-align: top;
+    }
+
+    .progress ol li {
+        display: inline-block;
+        float: none;
+        padding: 0 0.25em;
+        vertical-align: top;
+        width: 11%;
+        min-width: 4em;
+        max-width: 6em;
+    }
+    .progress ol li:after {
+        width: 95%;
+    }
+
+    .details, .article, .page-header h3, hr, .question, .fieldset {
+        width: 100%;
+    }
+
+    .message {
+        width: auto;
+    }
+
+    input[type="text"], input[type="email"], input[type="email"], input[type="tel"], select[size], textarea {
+        max-width: 99%;
+    }
+
+    .modal-popup {
+        width: 90%;
+    }
+
+    ul.recursive {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .tooltip, .radioTooltip {
+        margin-left: 0;
+        width: auto;
+    }
+
+    .grid .col .gridQuestion {
+        background-size: cover !important;
+    }
+}
+@media screen and (max-width: 720px) {
+    .page-header, .article {
+        width: auto;
+    }
+
+    .checkBox-question {
+        max-width: 90%;
+    }
+
+    .slimheader #TopBar img {
+        margin-top: 0.4em;
+        margin-bottom: 0px;
+    }
+
+    .progress ol {
+        display: block;
+        text-align: left;
+    }
+    .progress ol li {
+        display: block;
+        min-height: 2.2em;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    .progress ol li.active span.number {
+        font-size: 0.84em;
+        margin: 0 auto;
+    }
+    .progress ol li:after {
+        height: 2em;
+        left: 0.75em;
+        width: 0.25em;
+    }
+    .progress ol li .number, .progress ol li form {
+        display: inline-block !important;
+    }
+
+    .grid .col .gridQuestion,
+    .grid .col .gridAnswer,
+    .grid .col p,
+    .grid .col h2,
+    .grid .col h3 {
+        position: relative;
+        float: none;
+        height: auto;
+        min-height: 1px !important;
+        margin: 0;
+        max-width: initial;
+    }
+
+    .grid .col:hover .gridQuestion,
+    .grid .col:focus .gridQuestion {
+        left: 0;
+        min-height: 1px !important;
+        outline: 0 none;
+    }
+
+    .grid .col.one,
+    .grid .col.two,
+    .grid .col.three,
+    .grid .col.four,
+    .grid.gridtall .one .gridQuestion,
+    .grid.gridtall .two .gridQuestion,
+    .grid.gridtall .three .gridQuestion,
+    .grid.gridtall .four .gridQuestion {
+        width: 100%;
+        min-height: 1px !important;
+        outline: 0 none;
+    }
+
+    .grid .row {
+        margin-bottom: 0;
+    }
+
+    .grid .col {
+        margin-bottom: 1em !important;
+    }
+
+    .simplemodal-wrap {
+        display: block;
+        height: 100% !important;
+        left: 5px;
+        overflow: hidden;
+        position: absolute;
+        top: 5px;
+        width: 100% !important;
+    }
+
+    #simplemodal-container > .modalCloseImg.simplemodal-close {
+        display: none;
+    }
+
+    #simplemodal-container {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    input[type="submit"] + a {
+        display: inline-block;
+    }
+
+    .done-questions .undo {
+        width: 23%;
+    }
+}
+@media screen and (max-width: 480px) {
+    /* Smartphone styles + Vertical stack, remove and (max-height: 36px) to make live  */
+    h1, h2, h3 {
+        line-height: 1.3;
+    }
+
+    #preAmble li {
+        min-height: 50px;
+        padding: 1em 0 1em 5.5em;
+    }
+
+    .done-questions,
+    ul.recursive li .done-questions {
+        display: block;
+        text-align: left;
+    }
+    .done-questions h2,
+    .done-questions .answer,
+    .done-questions .undo,
+    ul.recursive li .done-questions h2,
+    ul.recursive li .done-questions .answer,
+    ul.recursive li .done-questions .undo {
+        display: block;
+        margin: 0.5em;
+        padding: 0;
+        width: auto;
+        text-align: left;
+    }
+    .done-questions h2,
+    ul.recursive li .done-questions h2 {
+        margin-bottom: 0.8em;
+    }
+    .done-questions .answer span,
+    ul.recursive li .done-questions .answer span {
+        margin: 0 auto;
+    }
+
+    #content {
+        padding: 0 15px 1em 15px;
+    }
+
+    #wrap {
+        margin-bottom: 0;
+    }
+
+    .push {
+        display: none;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    /* Grid for iOS, removes hover etc  */
+    .grid .col .gridQuestion,
+    .grid .col .gridAnswer,
+    .grid .col p,
+    .grid .col h2,
+    .grid .col h3 {
+        position: relative;
+        float: none;
+        height: auto;
+        min-height: 1px !important;
+        margin: 0;
+    }
+
+    .grid .col:hover .gridQuestion, .grid .col:focus .gridQuestion {
+        left: 0;
+        min-height: 1px !important;
+        outline: 0 none;
+    }
+
+    .grid .col.one, .grid .col.two, .grid .col.three, .grid .col.four,
+    .grid.gridtall .one .gridQuestion, .grid.gridtall .two .gridQuestion,
+    .grid.gridtall .three .gridQuestion, .grid.gridtall .four .gridQuestion {
+        min-height: 1px !important;
+        outline: 0 none;
+    }
+
+    .grid .row {
+        margin-bottom: 0;
+        display: flex;
+    }
+
+    .grid .col {
+        margin-bottom: 1em !important;
+    }
+
+    .grid .col div.gridQuestion {
+        background-image: none !important;
+    }
+}

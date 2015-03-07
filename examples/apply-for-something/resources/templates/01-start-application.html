@@ -1,13 +1,44 @@
 <html>
+<head>
+    {{> common-head.html }}
+</head>
+<body class="dgv">
+<div id="wrap">
+    <div id="content">
+        {{> progress.html }}
 
-  <body>
-    {{> progress.html }}          
+        <p>Before we begin, we are going to do a quick check to make sure you have everything you need</p>
 
-    <p>Before we begin, we are going to do a quick check to make sure you have everything you need</p>
-    <form name="start-application-form" method="POST" action="/start-application" xmlns="http://www.w3.org/1999/html">
-      <input type="checkbox" name="loan-defaulted">Have you ever defaulted on a loan before?</input>
-      <input type="submit" value="Start Application" name="start-application" />
-    </form>
-  </body>
+        <form name="start-application-form" method="POST" action="/start-application"
+              xmlns="http://www.w3.org/1999/html">
+
+            <div class="fieldset">
+                <h2><span class="question">Have you ever defaulted on a loan before?</span></h2>
+
+                <div id="defaultedOnLoanYesNo">
+                    <fieldset class="inline">
+                        <legend id="defaultedOnLoanYesNoLegendId" class="visuallyhidden"></legend>
+                        <div>
+
+                            <div class="gds-radio">
+                                <input type="radio" name="" id="defaultedOnLoan_yes" value="yes">
+                                <label for="defaultedOnLoan_yes" class="block-label"> Yes, I have defaulted on a loan
+                                    before</label></div>
+
+                            <div class="gds-radio">
+                                <input type="radio" name="" id="defaultedOnLoan_no" value="no">
+                                <label for="defaultedOnLoan_no" class="block-label"> No, I have not defaulted on a loan
+                                    before</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <input type="submit" value="Start Application" name="start-application"/>
+        </form>
+    </div>
+</div>
+</body>
 </html>
 

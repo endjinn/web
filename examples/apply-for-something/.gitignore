@@ -10,3 +10,4 @@ pom.xml.asc
 *.ipr
 *.iml
 *.iws
+.DS_Store

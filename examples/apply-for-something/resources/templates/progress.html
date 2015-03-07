@@ -2,14 +2,14 @@
   .selected { font-weight: bold; }
 </style>
 
-<div id="progress-tracker">
-  <ul>
-    {{stage "01-start-application.html"      "Start application"}}
+<div id="progress-tracker" class="progress">
+  <ol class="recursive">
+    {{stage "01-start-application.html"      "Start"}}
     {{stage "02-about-you.html"              "About you"}}
     {{stage "03-where-you-live.html"         "Where you live"}}
     {{stage "04-purpose-of-application.html" "Purpose of application"}}
-    {{stage "05-confirmation.html"           "Confirmation"}}
-    {{stage "06-submitted.html"              "Submitted"}}
-  </ul>
+    {{stage "05-confirmation.html"           "Confirm"}}
+    {{stage "06-submitted.html"              "Submitted" "last"}}
+  </ol>
 </div>
 

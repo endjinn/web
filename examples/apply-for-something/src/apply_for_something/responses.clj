@@ -6,17 +6,25 @@
 (set-template-path! "/templates" "")
 ;;(register-js-helpers! "resources/templates/helpers.js")
 
-(defn stage-class [stage current-stage]
-  (if (= stage current-stage)
-    "selected"
-    ""))
+(defn stage-class [stage current-stage style]
+  (let [result (if (= stage current-stage) "active" "")]
+      (if nil? style) result (str result " " style)))
 
+(defn stage-number [stage]
+  (read-string (first (clojure.string/split stage #"-"))))
+
+(defn get-style [options]
+  (let [option-count (count (.params options))]
+    (if (> option-count 1)    
+      (param options 1)
+      nil)))
 
 (defhelper stage [ctx options]
   (let [stage ctx
         current-stage (.get options "current-stage")
-        stage-context {:stageClass (stage-class stage current-stage)
-                       :stageText (param options 0)}]
+        stage-context {:stageClass (stage-class stage current-stage (get-style options))
+                       :stageText (param options 0)
+                       :stageNumber (stage-number stage)}]
     (safe-str (render-file "progress-stage.html" stage-context))))
 
 
